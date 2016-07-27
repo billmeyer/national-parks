@@ -20,19 +20,19 @@ public class DBConnection
 
     private DBConnection()
     {
-        String mongoHost = System.getenv("MONGODB_SERVICE_HOST");
+        String mongoHost = System.getProperty("MONGODB_SERVICE_HOST");
         if (mongoHost == null)
         {
             mongoHost = "127.0.0.1";
         }
 
-        String mongoPort = System.getenv("MONGODB_SERVICE_PORT");
+        String mongoPort = System.getProperty("MONGODB_SERVICE_PORT");
         if (mongoPort == null)
         {
             mongoPort = "27017";
         }
 
-        String mongoDBName = System.getenv("MONGODB_DATABASE");
+        String mongoDBName = System.getProperty("MONGODB_DATABASE");
         if (mongoDBName == null)
         {
             mongoDBName = "demo";
