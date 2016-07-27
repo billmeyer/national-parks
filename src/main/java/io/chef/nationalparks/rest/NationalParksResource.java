@@ -21,7 +21,7 @@ public class NationalParksResource
     private MongoCollection<Document> getNationalParksCollection()
     {
         MongoDatabase db = DBConnection.getDB();
-        MongoCollection<Document> parkListCollection = db.getCollection("nationalparks");
+        MongoCollection<Document> parkListCollection = db.getCollection("national-parks");
 
         return parkListCollection;
     }

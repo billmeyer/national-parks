@@ -2,17 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.chef</groupId>
-    <artifactId>nationalparks</artifactId>
+    <artifactId>national-parks</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <dependencies>
 
-        <!--<dependency>-->
-            <!--<groupId>javax</groupId>-->
-            <!--<artifactId>javaee-api</artifactId>-->
-            <!--<version>7.0</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -41,7 +35,7 @@
 
     </dependencies>
     <build>
-        <finalName>nationalparks</finalName>
+        <finalName>national-parks</finalName>
     </build>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
