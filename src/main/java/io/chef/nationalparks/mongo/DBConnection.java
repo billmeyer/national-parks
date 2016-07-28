@@ -38,6 +38,8 @@ public class DBConnection
             mongoDBName = "demo";
         }
 
+        System.out.printf("Attempting connection to database at mongodb://%s:%s/%s", mongoHost, mongoPort, mongoDBName);
+
         int port = Integer.decode(mongoPort);
 
         MongoClient mongo = new MongoClient(mongoHost, port);
