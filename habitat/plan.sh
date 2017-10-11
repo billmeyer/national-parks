@@ -11,7 +11,7 @@ pkg_binds=(
   [database]="port"
 )
 pkg_exports=(
-  [port]=cfg.tomcat_port
+  [port]=tomcat_port
 )
 pkg_exposes=(port)
 
