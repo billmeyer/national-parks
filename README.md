@@ -20,3 +20,4 @@ hab sup run > /hab/sup/default/sup.log &
 * Have open SSH sessions to hab1-3 and docker host
 * increment NP version and commit (but do not push)
 * make sure mongodb container is running on docker host
+* have browser tabs open to my origins, local app, and azure app
