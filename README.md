@@ -7,6 +7,8 @@ hab start mwrock/np-mongodb
 hab start mwrock/national-parks --bind database:np-mongodb.default
 ```
 
+Open your browser to `https://localhost:8080/national-parks` to see the app.
+
 ## Starting the supervisor in studio
 ```
 hab sup run > /hab/sup/default/sup.log &
