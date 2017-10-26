@@ -3,3 +3,5 @@ target/
 .idea
 national-parks.iml
 results/
+.terraform/
+*.tfstate
