@@ -81,7 +81,7 @@ resource "google_compute_instance" "initial-peer" {
 
   provisioner "file" {
     content     = "${data.template_file.initial_peer.rendered}"
-    destination = "/home/echohack/hab-sup.service"
+    destination = "/home/${var.gcp_image_user}/hab-sup.service"
   }
 
   provisioner "remote-exec" {
@@ -90,7 +90,7 @@ resource "google_compute_instance" "initial-peer" {
       "sudo useradd -g hab hab",
       "chmod +x /tmp/install_hab.sh",
       "sudo /tmp/install_hab.sh",
-      "sudo mv /home/echohack/hab-sup.service /etc/systemd/system/hab-sup.service",
+      "sudo mv /home/${var.gcp_image_user}/hab-sup.service /etc/systemd/system/hab-sup.service",
       "sudo systemctl daemon-reload",
       "sudo systemctl start hab-sup",
       "sudo systemctl enable hab-sup",
@@ -140,11 +140,11 @@ resource "google_compute_instance" "np-mongodb" {
 
   provisioner "file" {
     content     = "${data.template_file.sup_service.rendered}"
-    destination = "/home/echohack/hab-sup.service"
+    destination = "/home/${var.gcp_image_user}/hab-sup.service"
   }
 
   provisioner "local-exec" {
-    command = "scp -oStrictHostKeyChecking=no -i ${var.gcp_private_key} /Users/echohack/code/national-parks/hab-mongo/results/echohack-np-mongodb-3.2.9-20171026032947-x86_64-linux.hart ${var.gcp_image_user}@${self.network_interface.0.access_config.0.assigned_nat_ip}:/home/echohack"
+    command = "scp -oStrictHostKeyChecking=no -i ${var.gcp_private_key} ${var.local_hart_dir}/${var.np_mongodb_hart} ${var.gcp_image_user}@${self.network_interface.0.access_config.0.assigned_nat_ip}:/home/${var.gcp_image_user}"
   }
 
   provisioner "remote-exec" {
@@ -153,11 +153,11 @@ resource "google_compute_instance" "np-mongodb" {
       "sudo useradd -g hab hab",
       "chmod +x /tmp/install_hab.sh",
       "sudo /tmp/install_hab.sh",
-      "sudo mv /home/echohack/hab-sup.service /etc/systemd/system/hab-sup.service",
+      "sudo mv /home/${var.gcp_image_user}/hab-sup.service /etc/systemd/system/hab-sup.service",
       "sudo systemctl daemon-reload",
       "sudo systemctl start hab-sup",
       "sudo systemctl enable hab-sup",
-      "sudo hab pkg install /home/echohack/echohack-np-mongodb-3.2.9-20171026032947-x86_64-linux.hart",
+      "sudo hab pkg install /home/${var.gcp_image_user}/${var.np_mongodb_hart}",
       "sudo hab svc load echohack/np-mongodb --group prod --strategy at-once",
     ]
   }
@@ -202,11 +202,11 @@ resource "google_compute_instance" "national-parks" {
 
   provisioner "file" {
     content     = "${data.template_file.sup_service.rendered}"
-    destination = "/home/echohack/hab-sup.service"
+    destination = "/home/${var.gcp_image_user}/hab-sup.service"
   }
 
   provisioner "local-exec" {
-    command = "scp -oStrictHostKeyChecking=no -i ${var.gcp_private_key} /Users/echohack/code/national-parks/results/echohack-national-parks-5.6.0-20171026043832-x86_64-linux.hart ${var.gcp_image_user}@${self.network_interface.0.access_config.0.assigned_nat_ip}:/home/echohack"
+    command = "scp -oStrictHostKeyChecking=no -i ${var.gcp_private_key} ${var.local_hart_dir}/${var.national_parks_hart} ${var.gcp_image_user}@${self.network_interface.0.access_config.0.assigned_nat_ip}:/home/${var.gcp_image_user}"
   }
 
   provisioner "remote-exec" {
@@ -215,11 +215,11 @@ resource "google_compute_instance" "national-parks" {
       "sudo useradd -g hab hab",
       "chmod +x /tmp/install_hab.sh",
       "sudo /tmp/install_hab.sh",
-      "sudo mv /home/echohack/hab-sup.service /etc/systemd/system/hab-sup.service",
+      "sudo mv /home/${var.gcp_image_user}/hab-sup.service /etc/systemd/system/hab-sup.service",
       "sudo systemctl daemon-reload",
       "sudo systemctl start hab-sup",
       "sudo systemctl enable hab-sup",
-      "sudo hab pkg install /home/echohack/echohack-national-parks-5.6.0-20171026043832-x86_64-linux.hart",
+      "sudo hab pkg install /home/${var.gcp_image_user}/${var.national_parks_hart}",
       "sudo hab svc load echohack/national-parks --group prod --bind database:np-mongodb.prod --strategy at-once",
     ]
   }
