@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Map of National Parks</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
     <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -79,7 +79,7 @@
                     nationalPark.zipCode + "</br>";
 
             markerArray[i] = L.marker(
-                    [nationalPark.location.coordinates[1], nationalPark.location.coordinates[0]]).bindPopup(popupInformation);
+                    [nationalPark.location.coordinates[1], nationalPark.location.coordinates[0]], {alt: nationalPark.locationName}).bindPopup(popupInformation);
         }
 
         markerLayerGroup = L.layerGroup(markerArray).addTo(map);
