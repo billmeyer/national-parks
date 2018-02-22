@@ -5,3 +5,6 @@ target/
 .project
 .settings/
 national-parks.iml
+results/
+.terraform/
+*.tfstate
