@@ -4,7 +4,7 @@ pkg_origin=mwrock
 pkg_version=6.3.0
 pkg_maintainer="Bill Meyer <bill@chef.io>"
 pkg_license=('Apache-2.0')
-pkg_deps=(core/tomcat8 core/jre8)
+pkg_deps=(core/tomcat8 core/jre8 core/mongo-tools)
 pkg_build_deps=(core/jdk8/8u131 core/maven)
 pkg_svc_user="root"
 pkg_binds=(
@@ -29,5 +29,6 @@ do_build()
 
 do_install()
 {
+    cp -v ${HAB_CACHE_SRC_PATH}/${pkg_dirname}/national-parks.json ${PREFIX}/
     cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}/target/${pkg_name}.war ${PREFIX}/
 }

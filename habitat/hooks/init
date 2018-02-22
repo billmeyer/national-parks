@@ -1,0 +1,9 @@
+#!/bin/bash
+
+exec 2>&1
+
+{{#if bind.database ~}}
+{{pkgPathFor "core/mongo-tools"}}/bin/mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file {{pkg.path}}/national-parks.json --host={{bind.database.first.sys.ip}} --port={{bind.database.first.cfg.port}}
+{{else ~}}
+{{pkgPathFor "core/mongo-tools"}}/bin/mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file {{pkg.path}}/national-parks.json --host={{cfg.mongodb_service_host}} --port={{cfg.mongodb_service_port}}
+{{/if ~}}

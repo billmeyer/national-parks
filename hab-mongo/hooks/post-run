@@ -1,4 +1,0 @@
-#!/bin/sh
-#
-
-{{pkgPathFor "core/mongo-tools"}}/bin/mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file {{pkg.path}}/national-parks.json --host={{sys.ip}} --port={{cfg.mongod.net.port}}
