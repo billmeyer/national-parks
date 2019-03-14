@@ -1,4 +1,4 @@
-package io.chef.nationalparks.mongo;
+package com.iambillmeyer.nationalparks.mongo;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;

@@ -15,7 +15,7 @@
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>io.chef.nationalparks.rest.JaxrsConfig</param-value>
+            <param-value>com.iambillmeyer.nationalparks.rest.JaxrsConfig</param-value>
         </init-param>
     </servlet>
 

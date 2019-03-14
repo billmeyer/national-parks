@@ -1,4 +1,4 @@
-package io.chef.nationalparks.rest;
+package com.iambillmeyer.nationalparks.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

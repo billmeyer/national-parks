@@ -1,4 +1,4 @@
-package io.chef.nationalparks.domain;
+package com.iambillmeyer.nationalparks.domain;
 
 public class NationalPark
 {

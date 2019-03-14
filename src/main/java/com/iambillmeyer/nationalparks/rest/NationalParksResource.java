@@ -1,11 +1,11 @@
-package io.chef.nationalparks.rest;
+package com.iambillmeyer.nationalparks.rest;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import io.chef.nationalparks.domain.NationalPark;
-import io.chef.nationalparks.mongo.DBConnection;
+import com.iambillmeyer.nationalparks.domain.NationalPark;
+import com.iambillmeyer.nationalparks.mongo.DBConnection;
 import org.bson.Document;
 
 import javax.ws.rs.GET;
